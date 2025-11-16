@@ -3,10 +3,16 @@ package org.example.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Answer extends Content {
-    private final List<Comment> comments;
+public class Answer extends Post {
+    Boolean isAccepted;
     Answer(String body, User author) {
         super(body, author);
-        comments = new ArrayList<Comment>();
+        isAccepted = false;
+    }
+    public void setIsAccepted(Boolean isAccepted) {
+        this.isAccepted = isAccepted;
+    }
+    public Boolean getIsAccepted() {
+        return isAccepted;
     }
 }

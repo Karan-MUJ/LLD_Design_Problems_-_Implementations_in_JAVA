@@ -1,18 +1,17 @@
 package org.example.entities;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class User {
-    Long id;
-    String username;
-    Long reputation;
-    List<Question> questions;
-    List<Answer> answers;
-    List<Comment> comments;
+    private Long id;
+    private String username;
+    private AtomicLong reputation;
 
     public User(Long id, String username){
         this.id = id;
         this.username = username;
+        reputation = new AtomicLong(0L);
     }
 
     public Long getId() {
@@ -27,35 +26,7 @@ public class User {
         this.username = username;
     }
 
-    public Long getReputation() {
-        return reputation;
-    }
-
-    public void setReputation(Long reputation) {
-        this.reputation = reputation;
-    }
-
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void addQuestion(Question question) {
-        questions.add(question);
-    }
-
-    public List<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void addAnswer(Answer answer) {
-        answers.add(answer);
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void addComment(Comment comment) {
-        comments.add(comment);
+    public void updateReputation(Long changeValueBy) {
+        reputation.addAndGet(changeValueBy);
     }
 }
