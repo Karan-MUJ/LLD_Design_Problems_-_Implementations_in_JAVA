@@ -3,9 +3,9 @@ package org.example.entities;
 import org.example.enums.EventType;
 
 public class Event {
-    private EventType eventType;
-    private Post targetPost;
-    private User actor;
+    private final EventType eventType;
+    private final Post targetPost;
+    private final User actor;
     public Event(EventType eventType, Post targetPost, User actor) {
         this.eventType = eventType;
         this.targetPost = targetPost;

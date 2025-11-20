@@ -1,20 +1,20 @@
 package org.example.entities;
 
-import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class User {
-    private Long id;
+    private String id;
     private String username;
     private AtomicLong reputation;
 
-    public User(Long id, String username){
-        this.id = id;
+    public User(String username){
+        this.id = UUID.randomUUID().toString();
         this.username = username;
         reputation = new AtomicLong(0L);
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -29,4 +29,6 @@ public class User {
     public void updateReputation(Long changeValueBy) {
         reputation.addAndGet(changeValueBy);
     }
+
+    public Long getReputation() { return reputation.get(); }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Answer extends Post {
     Boolean isAccepted;
-    Answer(String body, User author) {
+    public Answer(String body, User author) {
         super(body, author);
         isAccepted = false;
     }

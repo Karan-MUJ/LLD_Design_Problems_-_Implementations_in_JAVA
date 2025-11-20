@@ -13,11 +13,11 @@ public class ReputationManager implements PostObserver{
     @Override
     public void onPostEvent(Event event) {
         switch (event.getEventType()) {
-            case EventType.DOWNVOTE_ANSWER -> event.getActor().updateReputation(ANSWER_DOWNVOTE_REP);
-            case EventType.DOWNVOTE_QUESTION -> event.getActor().updateReputation(QUESTION_DOWNVOTE_REP);
-            case EventType.UPVOTE_ANSWER -> event.getActor().updateReputation(ANSWER_UPVOTE_REP);
-            case EventType.UPVOTE_QUESTION -> event.getActor().updateReputation(QUESTION_UPVOTE_REP);
-            case EventType.ACCEPTED_ANSWER -> event.getActor().updateReputation(ACCEPTED_ANSWER_REP);
+            case DOWNVOTE_ANSWER -> event.getActor().updateReputation(ANSWER_DOWNVOTE_REP);
+            case DOWNVOTE_QUESTION -> event.getActor().updateReputation(QUESTION_DOWNVOTE_REP);
+            case UPVOTE_ANSWER -> event.getActor().updateReputation(ANSWER_UPVOTE_REP);
+            case UPVOTE_QUESTION -> event.getActor().updateReputation(QUESTION_UPVOTE_REP);
+            case ACCEPTED_ANSWER -> event.getActor().updateReputation(ACCEPTED_ANSWER_REP);
         }
     }
 }

@@ -6,6 +6,7 @@ import org.example.observer.PostObserver;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -15,8 +16,10 @@ public class Post extends Content{
     private final List<PostObserver> observers;
     private final Map<User, VoteType> voters;
     private final List<Comment> comments;
+    private String id;
     public Post(String body, User author) {
         super(body, author);
+        id = UUID.randomUUID().toString();
         voters = new ConcurrentHashMap<User, VoteType>();
         votes = new AtomicInteger(0);
         observers = new CopyOnWriteArrayList<PostObserver>();
@@ -33,6 +36,7 @@ public class Post extends Content{
             observer.onPostEvent(event);
         }
     }
+    public void addComment(Comment comment) { comments.add(comment); }
     public synchronized void vote(User user, VoteType vote) {
         if (voters.get(user) == vote) {
             return;

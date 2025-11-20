@@ -2,10 +2,7 @@ package org.example.entities;
 
 import org.example.enums.EventType;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Question extends Post {
     private final List<Answer> answers;
@@ -13,12 +10,12 @@ public class Question extends Post {
     private final Set<Tag> tags;
     private String title;
 
-    Question(String body, User author, String title, Set<Tag> tags) {
+    public Question(String body, User author, String title, Set<Tag> tags) {
         super(body, author);
-        comments = new ArrayList<Comment>();
         answers = new ArrayList<Answer>();
         this.tags = tags;
         this.title = title;
+        selectedAnswer = null;
     }
 
     public String getTitle() {
@@ -42,4 +39,5 @@ public class Question extends Post {
             notifyObservers(new Event(EventType.ACCEPTED_ANSWER, this, answer.getAuthor()));
         }
     }
+    public void addAnswer(Answer answer) { answers.add(answer); }
 }
