@@ -46,13 +46,13 @@ public class StackOverflowService {
 
     public User registerUser(String userName) {
         User user = new User(userName);
-        users.put(userName, user);
+        users.put(user.getId(), user);
         return user;
     }
 
-    public void voteOnPost(User userId, String postId, VoteType voteType) {
+    public void voteOnPost(User actor, String postId, VoteType voteType) {
         Post post = getPostById(postId);
-        User user = users.get(userId);
+        User user = users.get(actor.getId());
         post.vote(user, voteType);
     }
 

@@ -46,7 +46,7 @@ public class StackOverflowDemo {
 
         // 5. Alice accepts Charlie's answer
         System.out.println("\n--- Alice accepts Charlie's answer ---");
-        service.acceptAnswer(question.getId(), charlieAnswer.getId());
+        service.acceptAnswer(charlieAnswer.getId(), question.getId());
         printReputations(alice, bob, charlie);
 
         // 6. Search for questions

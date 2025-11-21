@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Post extends Content{
+public class Post extends Content {
     private final AtomicInteger votes;
     private final List<PostObserver> observers;
     private final Map<User, VoteType> voters;
