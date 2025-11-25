@@ -3,7 +3,6 @@ package org.example.entities;
 import org.example.enums.EventType;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +14,6 @@ public class Question extends Post {
 
     Question(String body, User author, String title, Set<Tag> tags) {
         super(body, author);
-        comments = new ArrayList<Comment>();
         answers = new ArrayList<Answer>();
         this.tags = tags;
         this.title = title;
